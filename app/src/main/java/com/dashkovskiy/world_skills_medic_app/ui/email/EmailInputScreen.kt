@@ -25,6 +25,7 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.res.painterResource
+import androidx.compose.ui.text.Placeholder
 import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextAlign
@@ -93,7 +94,8 @@ fun EmailInputScreen(
 
             MedicAppTextField(
                 modifier = Modifier.fillMaxWidth(),
-                email = state.email,
+                value = state.email,
+                placeholder = "example@mail.ru",
                 onValuesChanged = viewModel::setEmail
             )
 
@@ -122,12 +124,13 @@ fun EmailInputScreen(
 @Composable
 fun MedicAppTextField(
     modifier: Modifier = Modifier,
-    email: String,
+    value: String,
+    placeholder: String,
     onValuesChanged: (String) -> Unit
 ) {
     BasicTextField(
         modifier = modifier,
-        value = email,
+        value = value,
         singleLine = true,
         onValueChange = onValuesChanged,
         decorationBox = { innerTextField ->
@@ -146,9 +149,9 @@ fun MedicAppTextField(
                     .padding(horizontal = 14.dp),
                 contentAlignment = Alignment.CenterStart
             ) {
-                if (email.isEmpty()) {
+                if (value.isEmpty()) {
                     Text(
-                        text = "example@mail.ru",
+                        text = placeholder,
                         color = Color.Black.copy(alpha = 0.5f)
                     )
                 }

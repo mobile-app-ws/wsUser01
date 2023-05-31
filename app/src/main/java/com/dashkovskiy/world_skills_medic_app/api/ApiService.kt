@@ -1,5 +1,6 @@
 package com.dashkovskiy.world_skills_medic_app.api
 
+import com.google.gson.annotations.SerializedName
 import retrofit2.Response
 import retrofit2.http.Header
 import retrofit2.http.POST
@@ -11,6 +12,14 @@ data class CodeSendSuccess(
 data class Token(
     val token: String
 )
+
+enum class Gender {
+    @SerializedName("Мужской")
+    MALE,
+    @SerializedName("Женский")
+    FEMALE,
+    NOT_SPECIFIED
+}
 
 //interface for network call to medic api
 interface ApiService {
