@@ -11,6 +11,7 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.lifecycle.ViewModel
+import com.dashkovskiy.world_skills_medic_app.ui.AppNavigation
 import com.dashkovskiy.world_skills_medic_app.ui.theme.WorldskillsmedicappTheme
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.asStateFlow
@@ -20,46 +21,19 @@ class MainActivity : ComponentActivity() {
         super.onCreate(savedInstanceState)
         setContent {
             WorldskillsmedicappTheme {
-                // A surface container using the 'background' color from the theme
                 Surface(
                     modifier = Modifier.fillMaxSize(),
                     color = MaterialTheme.colorScheme.background
                 ) {
-                    Greeting("Android")
+                    AppNavigation()
                 }
             }
         }
     }
 }
 
-
-
+@Preview
 @Composable
-fun Greeting(name: String, modifier: Modifier = Modifier) {
-    Text(
-        text = "Hello $name!",
-        modifier = modifier
-    )
-}
-
-fun testFun(){
-    //^[a-z0-9]+@[a-z0-9]+?\.[a-z]{2,3}$
-}
-@Preview(showBackground = true)
-@Composable
-fun GreetingPreview() {
-    WorldskillsmedicappTheme {
-        Greeting("Android")
-    }
-}
-
-data class TestState(val name : String = "")
-
-class TestViewModel : ViewModel(){
-
-    private val _viewState = MutableStateFlow(TestState())
-    val viewState = _viewState.asStateFlow()
-
-    private val state : TestState
-        get() = _viewState.value
+fun AppNavigationPreview(){
+    AppNavigation()
 }

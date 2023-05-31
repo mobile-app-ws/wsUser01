@@ -7,7 +7,7 @@ import androidx.compose.ui.test.performTouchInput
 import androidx.compose.ui.test.swipeLeft
 import androidx.test.platform.app.InstrumentationRegistry
 import androidx.test.ext.junit.runners.AndroidJUnit4
-import com.dashkovskiy.world_skills_medic_app.ui.LocalStorage
+import com.dashkovskiy.world_skills_medic_app.ui.utils.LocalStorage
 import com.dashkovskiy.world_skills_medic_app.ui.onboard.OnboardItem
 import com.dashkovskiy.world_skills_medic_app.ui.onboard.OnboardScreen
 import com.dashkovskiy.world_skills_medic_app.ui.onboard.OnboardViewModel

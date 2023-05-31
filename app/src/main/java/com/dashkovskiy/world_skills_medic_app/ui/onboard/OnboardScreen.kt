@@ -67,7 +67,10 @@ val onboardItemsList = listOf(
 
 @OptIn(ExperimentalFoundationApi::class)
 @Composable
-fun OnboardScreen(viewModel: OnboardViewModel = getViewModel()) {
+fun OnboardScreen(
+    viewModel: OnboardViewModel = getViewModel(),
+    navigateNext : () -> Unit = {}
+) {
 
     val state by viewModel.boardState.collectAsState()
     val pagerState = rememberPagerState()
@@ -83,7 +86,10 @@ fun OnboardScreen(viewModel: OnboardViewModel = getViewModel()) {
             horizontalArrangement = Arrangement.SpaceBetween
         ) {
             TextButton(
-                onClick = viewModel::saveOnboardFlag
+                onClick = {
+                    viewModel.saveOnboardFlag()
+                    navigateNext()
+                }
             ) {
                 Text(
                     text = stringResource(
