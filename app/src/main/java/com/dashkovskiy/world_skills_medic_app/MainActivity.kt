@@ -43,7 +43,7 @@ fun Greeting(name: String, modifier: Modifier = Modifier) {
 }
 
 fun testFun(){
-
+    //^[a-z0-9]+@[a-z0-9]+?\.[a-z]{2,3}$
 }
 @Preview(showBackground = true)
 @Composable

@@ -1,3 +1,9 @@
 <resources>
     <string name="app_name">world-skills-medic-app</string>
+    <string name="onboard_1_title">Анализы</string>
+    <string name="onboard_2_title">Уведомления</string>
+    <string name="onboard_3_title">Мониторинг</string>
+    <string name="onboard_1_description">Экспресс сбор и получение проб</string>
+    <string name="onboard_2_description">Вы быстро узнаете о результатах</string>
+    <string name="onboard_3_description">Наши врачи всегда наблюдают за вашими показателями здоровья</string>
 </resources>
