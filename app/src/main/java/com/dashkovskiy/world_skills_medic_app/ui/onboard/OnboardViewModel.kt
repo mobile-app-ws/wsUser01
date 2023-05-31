@@ -1,23 +1,22 @@
 package com.dashkovskiy.world_skills_medic_app.ui.onboard
 
 import androidx.lifecycle.ViewModel
+import androidx.lifecycle.viewModelScope
+import com.dashkovskiy.world_skills_medic_app.ui.LocalStorage
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.asStateFlow
+import kotlinx.coroutines.launch
 
-data class OnboardState(
-    val onboardQueue : List<OnboardItem> = emptyList(),
 
-)
+class OnboardViewModel(private val localStorage: LocalStorage) : ViewModel() {
 
-class OnboardViewModel : ViewModel() {
-    private val _boardState = MutableStateFlow< List<OnboardItem>>(emptyList())
+    private val _boardState = MutableStateFlow(onboardItemsList)
     val boardState = _boardState.asStateFlow()
 
-    fun dropOnboard(){
-        //todo
-    }
 
     fun saveOnboardFlag(){
-        //todo
+        viewModelScope.launch {
+            localStorage.setOnboardFlag(true)
+        }
     }
 }

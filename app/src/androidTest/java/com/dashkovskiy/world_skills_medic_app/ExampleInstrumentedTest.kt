@@ -7,6 +7,7 @@ import androidx.compose.ui.test.performTouchInput
 import androidx.compose.ui.test.swipeLeft
 import androidx.test.platform.app.InstrumentationRegistry
 import androidx.test.ext.junit.runners.AndroidJUnit4
+import com.dashkovskiy.world_skills_medic_app.ui.LocalStorage
 import com.dashkovskiy.world_skills_medic_app.ui.onboard.OnboardItem
 import com.dashkovskiy.world_skills_medic_app.ui.onboard.OnboardScreen
 import com.dashkovskiy.world_skills_medic_app.ui.onboard.OnboardViewModel
@@ -26,7 +27,7 @@ class ExampleInstrumentedTest {
 
     @Test
     fun testCorrectImageAndTextOrder() {
-        val vm = OnboardViewModel()
+        val vm = OnboardViewModel(LocalStorage(InstrumentationRegistry.getInstrumentation().targetContext))
 
         rule.setContent {
             OnboardScreen()
@@ -37,6 +38,7 @@ class ExampleInstrumentedTest {
         assertEquals(
             vm.boardState.value.first(),
             OnboardItem(
+                title = R.string.onboard_1_title,
                 image = R.drawable.onboard_1,
                 description = R.string.onboard_1_description
             )
@@ -47,6 +49,7 @@ class ExampleInstrumentedTest {
         assertEquals(
             vm.boardState.value.first(),
             OnboardItem(
+                title = R.string.onboard_2_title,
                 image = R.drawable.onboard_2,
                 description = R.string.onboard_2_description
             )
@@ -57,6 +60,7 @@ class ExampleInstrumentedTest {
         assertEquals(
             vm.boardState.value.first(),
             OnboardItem(
+                title = R.string.onboard_3_title,
                 image = R.drawable.onboard_3,
                 description = R.string.onboard_3_description
             )
@@ -66,7 +70,7 @@ class ExampleInstrumentedTest {
 
     @Test
     fun testCorrectItemsCount(){
-        val vm = OnboardViewModel()
+        val vm = OnboardViewModel(LocalStorage(InstrumentationRegistry.getInstrumentation().targetContext))
 
         rule.setContent {
             OnboardScreen()

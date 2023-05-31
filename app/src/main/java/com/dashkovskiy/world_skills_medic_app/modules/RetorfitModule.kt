@@ -1,4 +1,4 @@
-package com.dashkovskiy.world_skills_medic_app
+package com.dashkovskiy.world_skills_medic_app.modules
 
 import org.koin.dsl.module
 import retrofit2.Retrofit
