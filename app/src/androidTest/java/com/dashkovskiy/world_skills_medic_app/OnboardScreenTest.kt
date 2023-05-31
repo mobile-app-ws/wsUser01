@@ -20,7 +20,7 @@ import org.junit.Rule
 
 
 @RunWith(AndroidJUnit4::class)
-class ExampleInstrumentedTest {
+class OnboardScreenTest {
 
     @get:Rule
     val rule = createComposeRule()
