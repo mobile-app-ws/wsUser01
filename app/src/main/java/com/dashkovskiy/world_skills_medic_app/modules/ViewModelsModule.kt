@@ -1,5 +1,6 @@
 package com.dashkovskiy.world_skills_medic_app.modules
 
+import com.dashkovskiy.world_skills_medic_app.ui.analyzes.AnalyzesViewModel
 import com.dashkovskiy.world_skills_medic_app.ui.code.CodeInputViewModel
 import com.dashkovskiy.world_skills_medic_app.ui.email.EmailInputViewModel
 import com.dashkovskiy.world_skills_medic_app.ui.onboard.OnboardViewModel
@@ -12,4 +13,5 @@ val viewModelsModule = module {
     viewModelOf(::EmailInputViewModel)
     viewModelOf(::CodeInputViewModel)
     viewModelOf(::PatientMapViewModel)
+    viewModelOf(::AnalyzesViewModel)
 }
