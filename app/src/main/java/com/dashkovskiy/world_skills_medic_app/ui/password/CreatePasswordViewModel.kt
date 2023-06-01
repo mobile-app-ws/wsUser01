@@ -8,7 +8,8 @@ import kotlinx.coroutines.flow.asStateFlow
 import kotlinx.coroutines.launch
 
 data class CreatePasswordState(
-    val pwd : String = ""
+    val pwd : String = "",
+    val isPasswordSaved : Boolean = false
 )
 
 class CreatePasswordViewModel(
@@ -23,7 +24,7 @@ class CreatePasswordViewModel(
 
     fun setPassword(number : Int){
         val pwd = state.pwd + number
-        if (pwd.length < 4){
+        if (pwd.length <= 4){
             _state.value = state.copy(pwd = pwd)
         }
         if (pwd.length == 4){
@@ -31,5 +32,13 @@ class CreatePasswordViewModel(
                 localStorage.setUserPassword(state.pwd)
             }
         }
+    }
+
+    fun setPasswordSaved(isSaved : Boolean = false){
+        _state.value = state.copy(isPasswordSaved = isSaved)
+    }
+
+    fun deleteNumber(){
+        _state.value = state.copy(pwd = state.pwd.dropLast(1))
     }
 }
