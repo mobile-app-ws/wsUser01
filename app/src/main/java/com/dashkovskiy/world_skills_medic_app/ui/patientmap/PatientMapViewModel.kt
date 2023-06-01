@@ -44,4 +44,8 @@ class PatientMapViewModel : ViewModel() {
     fun setGender(gender: Gender) {
         _state.value = state.copy(gender = gender)
     }
+
+    fun saveUserProfile(){
+
+    }
 }
