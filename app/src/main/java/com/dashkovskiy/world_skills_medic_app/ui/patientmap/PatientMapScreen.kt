@@ -132,7 +132,10 @@ fun MedicTextFieldGenderPicker(
 }
 
 @Composable
-fun PatientMapScreen(viewModel: PatientMapViewModel = getViewModel()) {
+fun PatientMapScreen(
+    viewModel: PatientMapViewModel = getViewModel(),
+    navigateNext: () -> Unit = {}
+) {
 
     val state by viewModel.viewState.collectAsState()
 
@@ -158,7 +161,7 @@ fun PatientMapScreen(viewModel: PatientMapViewModel = getViewModel()) {
                 )
             )
             TextButton(
-                onClick = { /*TODO*/ }
+                onClick = navigateNext
             ) {
                 Text(
                     text = stringResource(R.string.onboard_skip),

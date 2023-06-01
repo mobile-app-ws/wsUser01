@@ -44,9 +44,16 @@ fun CreatePasswordScreenPreview() {
 
 @Composable
 fun CreatePasswordScreen(
-    viewModel: CreatePasswordViewModel = getViewModel()
+    viewModel: CreatePasswordViewModel = getViewModel(),
+    navigateNext: () -> Unit = {}
 ) {
     val state by viewModel.viewState.collectAsState()
+
+    if (state.isPasswordSaved) {
+        navigateNext.also {
+            viewModel.setPasswordSaved(isSaved = false)
+        }
+    }
 
     Column(
         modifier = Modifier.fillMaxWidth(),
@@ -57,7 +64,7 @@ fun CreatePasswordScreen(
             horizontalArrangement = Arrangement.End
         ) {
             TextButton(
-                onClick = { /*TODO*/ }
+                onClick = navigateNext
             ) {
                 Text(
                     text = stringResource(R.string.onboard_skip),
@@ -86,7 +93,7 @@ fun CreatePasswordScreen(
             )
         )
         Spacer(modifier = Modifier.height(56.dp))
-        PasswordLengthIndicator()
+        PasswordLengthIndicator(pwdLength = state.pwd.length)
         Spacer(modifier = Modifier.height(60.dp))
         LazyVerticalGrid(
             modifier = Modifier.padding(horizontal = 43.dp),
@@ -114,7 +121,7 @@ fun CreatePasswordScreen(
                     modifier = Modifier
                         .requiredSize(80.dp)
                         .clip(CircleShape)
-                        .clickable { },
+                        .clickable { viewModel.deleteNumber() },
                     contentAlignment = Alignment.Center
                 ) {
                     Icon(
