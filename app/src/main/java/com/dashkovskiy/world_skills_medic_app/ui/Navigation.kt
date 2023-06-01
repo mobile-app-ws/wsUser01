@@ -29,6 +29,7 @@ sealed class Nav(val route: String) {
     object CreatePassword : Nav("create_password")
 
     //main nav graph with bottom navigation
+    object Main : Nav("main_graph")
     object Analyzes : Nav("analyzes")
     object Results : Nav("results")
     object Support : Nav("support")
@@ -61,6 +62,7 @@ fun AppNavigation(
                 }
             }
         }
+
         composable(route = Nav.Onboard.route) {
             OnboardScreen {
                 navController.navigate(Nav.EmailInput.route) {
@@ -90,7 +92,10 @@ fun AppNavigation(
                 }
             )
         }
-        navigation(startDestination = Nav.Analyzes.route, route = "main_graph") {
+        composable(route = Nav.CreatePassword.route){
+
+        }
+        navigation(startDestination = Nav.Analyzes.route, route = Nav.Main.route) {
             composable(Nav.Analyzes.route) {
                 AnalyzesScreen()
             }
