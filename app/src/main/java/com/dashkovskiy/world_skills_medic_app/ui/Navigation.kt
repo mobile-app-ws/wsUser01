@@ -13,7 +13,7 @@ import com.dashkovskiy.world_skills_medic_app.ui.code.CodeInputScreen
 import com.dashkovskiy.world_skills_medic_app.ui.email.EmailInputScreen
 import com.dashkovskiy.world_skills_medic_app.ui.launch.LaunchScreen
 import com.dashkovskiy.world_skills_medic_app.ui.onboard.OnboardScreen
-import com.dashkovskiy.world_skills_medic_app.ui.profile.ProfileScreen
+import com.dashkovskiy.world_skills_medic_app.ui.patientmap.PatientMapScreen
 import com.dashkovskiy.world_skills_medic_app.ui.results.ResultsScreen
 import com.dashkovskiy.world_skills_medic_app.ui.support.SupportScreen
 import com.dashkovskiy.world_skills_medic_app.ui.utils.LocalStorage
@@ -101,7 +101,7 @@ fun AppNavigation(
                 SupportScreen()
             }
             composable(Nav.Profile.route) {
-                ProfileScreen()
+                PatientMapScreen()
             }
         }
     }
